@@ -1,0 +1,33 @@
+
+.title {
+    color: #1d2b47;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.computerSelection, .playerSelection {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5em 0;
+}
+
+.playersPicks {
+    text-align: center;
+}
+
+.finalChoices {
+    display: flex;
+    justify-content: center;
+}
+
+.computersChoice, .playersChoice {
+    border: 2px solid red;
+    padding: 3em;
+}
+
+/* @media screen and (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        text-align: center;
+    }
+  } */
