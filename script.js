@@ -14,20 +14,17 @@ function computerPlay() {
 // create a function that will return the user input 
 // use 'prompt' to get input from the user;
 function playerPlay() {
-    playerSelection = prompt('Please select your weapon', 'paper', 'rock', 'scissors').toLowerCase();
+    playerSelection = this.event.path[1].id
 }
 
-
-// - make the two parameters lowercase and store their result into variables;
 let playerSelection;
 let computerSelection;
 
-// we need 2 variables to keep track of the score for both players
-// variables should be initiated with 0
+
 let computerVictories = 0;
 let playerVictories = 0;
 
-// we need 2 variables to display the winner of the game
+
 let computer = 'Computer';
 let player = 'Player';
 
@@ -35,51 +32,31 @@ let player = 'Player';
 // Write a function called 'playRound' that plays a single round of Rock Paper Scissors
 function playRound() {
 
-    // we call the computerPlay function to log the computer selection
-    // we call the playerPlay function to log the player selection
     computerPlay();
     playerPlay();
 
-
-    // We create conditionals to display the right message according to the output and increase the corresponding counter variable
-    // - there can only be 7 possible outcomes:
-
-    // - 1. "You Won! Rock beats Scissors."
     if (playerSelection === 'rock' && computerSelection === 'scissors') {
         playerVictories += 1;
         console.log("You Won! Rock beats Scissors.")
-
-    // - 2. "You Won! Paper beats Rock."
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
         playerVictories += 1;
         console.log("You Won! Paper beats Rock.")
-
-    // - 3. "You Won! Scissors beats Paper."
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
         playerVictories += 1;
         console.log("You Won! Scissors beats Paper.")
-
-    // - 4. "You Lose! Rock beats Scissors."
     } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
         computerVictories += 1;
         console.log("You Lose! Rock beats Scissors.")
-
-    // - 5. "You Lose! Scissors beats Paper."
     } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
         computerVictories += 1;
         console.log("You Lose! Scissors beats Paper.")
-
-    // - 6. "You Lose! Paper beats Rock."
     } else if (playerSelection === 'rock' && computerSelection === 'paper') {
         computerVictories += 1;
         console.log("You Lose! Paper beats Rock.")
-
-    // - 7. "It's a tie. You selected the same weapon."
     } else {
         console.log("It's a tie. You selected the same weapon.");
     }
 
-    
 }
     
     
@@ -104,6 +81,16 @@ function game() {
 }
 
 // }
+
+
+const playerRock = document.querySelector('#rock');
+const playerPaper = document.querySelector('#paper')
+const playerScissors = document.querySelector('#scissors')
+
+playerRock.addEventListener('click', playRound);
+playerPaper.addEventListener('click', playRound);
+playerScissors.addEventListener('click', playRound);
+// playersChoices.forEach(choice => choice.addEventListener('click', playRound));
 
 
 
