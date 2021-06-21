@@ -56,7 +56,8 @@ function playRound() {
     } else {
         console.log("It's a tie. You selected the same weapon.");
     }
-
+    
+    score.textContent = `Current score: \n Computer ${computerVictories} \n Player ${playerVictories}`
 }
     
     
@@ -86,6 +87,7 @@ function game() {
 const playerRock = document.querySelector('#rock');
 const playerPaper = document.querySelector('#paper')
 const playerScissors = document.querySelector('#scissors')
+const score = document.querySelector('.score')
 
 playerRock.addEventListener('click', playRound);
 playerPaper.addEventListener('click', playRound);
