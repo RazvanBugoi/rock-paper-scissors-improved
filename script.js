@@ -47,25 +47,25 @@ function playRound() {
 
     if (playerSelection === 'rock' && computerSelection === 'computerScissors') {
         playerVictories += 1;
-        output.innerHTML = `<span style="color:green;font-size:2em;">You Won!</span> Rock beats Scissors.`
+        output.innerHTML = `<span style="color:green;">You Won!</span> Rock beats Scissors.`
     } else if (playerSelection === 'paper' && computerSelection === 'computerRock') {
         playerVictories += 1;
-        output.innerHTML = `<span style="color:green;font-size:2em;">You Won!</span> Paper beats Rock.`
+        output.innerHTML = `<span style="color:green;">You Won!</span> Paper beats Rock.`
     } else if (playerSelection === 'scissors' && computerSelection === 'computerPaper') {
         playerVictories += 1;
-        output.innerHTML = `<span style="color:green;font-size:2em;">You Won!</span> Scissors beats Paper.`
+        output.innerHTML = `<span style="color:green;">You Won!</span> Scissors beats Paper.`
     } else if (playerSelection === 'scissors' && computerSelection === 'computerRock') {
         computerVictories += 1;
-        output.innerHTML = `<span style="color:red;font-size:2em;">You Lost!</span> Rock beats Scissors.`
+        output.innerHTML = `<span style="color:red;">You Lost!</span> Rock beats Scissors.`
     } else if (playerSelection === 'paper' && computerSelection === 'computerScissors') {
         computerVictories += 1;
-        output.innerHTML = `<span style="color:red;font-size:2em;">You Lost!</span> Scissors beats Paper.`
+        output.innerHTML = `<span style="color:red;">You Lost!</span> Scissors beats Paper.`
     } else if (playerSelection === 'rock' && computerSelection === 'computerPaper') {
         computerVictories += 1;
-        output.innerHTML = `<span style="color:red;font-size:2em;">You Lost!</span> Paper beats Rock.`
+        output.innerHTML = `<span style="color:red;">You Lost!</span> Paper beats Rock.`
     } else {
         output.textContent = "It's a tie. You selected the same weapon."
-        output.innerHTML = `<span style="color:grey;font-size:2em;">It's a tie!</span> You selected the same weapon.`
+        output.innerHTML = `<span style="color:grey;">It's a tie!</span> You selected the same weapon.`
     }
     
     score.textContent = `Current score: \n Computer ${computerVictories} \n Player ${playerVictories}`
