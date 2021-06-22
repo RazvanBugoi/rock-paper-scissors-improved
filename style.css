@@ -1,4 +1,4 @@
-h1,h2,p {
+h1,h2,h3,p {
     color: #1d2b47;
 }
 
@@ -36,7 +36,7 @@ h3 {
 }
 
 .computersChoice, .playersChoice {
-    border: 2px solid red;
+    border: 2px solid black;
     padding: 3em;
 }
 
@@ -45,7 +45,25 @@ h3 {
 }
 
 .playerSelection>div:hover {
-    transform: scale(1.1)
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+h2 {
+    text-align: center ;
+}
+
+.reset {
+    text-align: center;
+}
+
+.resetScore {
+    padding: 0.7em;
+    font-size: 1em;
+}
+
+.resetScore:hover {
+    cursor: pointer;
 }
 
 /* @media screen and (max-width: 768px) {
