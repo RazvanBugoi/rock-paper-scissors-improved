@@ -1,13 +1,16 @@
-// game is gonna be played against computer
-// create a function called 'computerPlay' that will randomly return either 'Rock' , 'Paper' or 'Scissors'
 function computerPlay() {
-    const gameChoices = ['rock', 'paper', 'scissors'];
+    const gameChoices = ['computerRock', 'computerPaper', 'computerScissors'];
 
     function getRandomInt(max) {
         return Math.floor(Math.random() * Math.floor(max));
     }
 
     computerSelection = gameChoices[getRandomInt(3)];
+    const computerFinalOption = document.getElementById('computerFinalOption')
+    const computerHasChosen = document.getElementById(`${computerSelection}`)
+
+    computerFinalOption.className = computerHasChosen.className;
+    
     return computerSelection;
 }
 
@@ -15,6 +18,13 @@ function computerPlay() {
 // use 'prompt' to get input from the user;
 function playerPlay() {
     playerSelection = this.event.path[1].id
+    let currentSelection = this.event.path[0].className
+
+    const playerFinalOption = document.getElementById('playerFinalOption')
+
+
+    playerFinalOption.className = currentSelection;
+
 }
 
 let playerSelection;
@@ -35,22 +45,22 @@ function playRound() {
     computerPlay();
     playerPlay();
 
-    if (playerSelection === 'rock' && computerSelection === 'scissors') {
+    if (playerSelection === 'rock' && computerSelection === 'computerScissors') {
         playerVictories += 1;
         console.log("You Won! Rock beats Scissors.")
-    } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+    } else if (playerSelection === 'paper' && computerSelection === 'computerRock') {
         playerVictories += 1;
         console.log("You Won! Paper beats Rock.")
-    } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+    } else if (playerSelection === 'scissors' && computerSelection === 'computerPaper') {
         playerVictories += 1;
         console.log("You Won! Scissors beats Paper.")
-    } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+    } else if (playerSelection === 'scissors' && computerSelection === 'computerRock') {
         computerVictories += 1;
         console.log("You Lose! Rock beats Scissors.")
-    } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+    } else if (playerSelection === 'paper' && computerSelection === 'computerScissors') {
         computerVictories += 1;
         console.log("You Lose! Scissors beats Paper.")
-    } else if (playerSelection === 'rock' && computerSelection === 'paper') {
+    } else if (playerSelection === 'rock' && computerSelection === 'computerPaper') {
         computerVictories += 1;
         console.log("You Lose! Paper beats Rock.")
     } else {
@@ -62,27 +72,6 @@ function playRound() {
     
     
 
-// Write a new function called game() {
-
-function game() {
-
-// use a loop to play more than 1 round of the game
-// if one player gets to score 3, return message and finish game by exiting loop
-    for (let i=0; i<=15; i++) {
-        if (computerVictories == 5 || playerVictories == 5) {
-            return `Congratulations ${(computerVictories > 4) ? computer : player}! You won.`;
-    } else {
-        playRound();
-            console.log(`Current score is:\n  Player: ${playerVictories} \n Computer ${computerVictories}`);
-            }
-    }
-
-    computerVictories = 0;
-    playerVictories = 0;
-}
-
-// }
-
 
 const playerRock = document.querySelector('#rock');
 const playerPaper = document.querySelector('#paper')
@@ -92,7 +81,7 @@ const score = document.querySelector('.score')
 playerRock.addEventListener('click', playRound);
 playerPaper.addEventListener('click', playRound);
 playerScissors.addEventListener('click', playRound);
-// playersChoices.forEach(choice => choice.addEventListener('click', playRound));
+
 
 
 
